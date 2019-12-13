@@ -84,7 +84,6 @@ def draw_popularity_charts(platforms, data):
 
     reviews = [sorted([opinions_to_numbers[x] for x in review if x != "Не слышал"]) for review in data]
     median_reviews = list(map(median, reviews))
-
     # сортируем платформы по полученному медианному значению
     sorted_data = sorted(zip(platforms, median_reviews), key=lambda x: x[1])
 
@@ -116,7 +115,7 @@ def draw_popularity_charts(platforms, data):
     values = [x[1] for x in sorted_data]
 
     plt.figure(figsize=(15, 10))
-    plt.ylim(0, 0.5)
+    plt.ylim(0, 0.6)
     plt.scatter(keys, values)
     plt.xlabel("Название платформы")
     plt.title("Доля положительных отзывов платформы")
