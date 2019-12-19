@@ -108,7 +108,7 @@ def draw_popularity_charts(platforms, data):
     #plt.show()
 
     # теперь посчитаем долю хороших отзывов от всех отзывов
-    good_reviews_share = [x / 40 for x in get_good_reviews(data)]
+    good_reviews_share = [x / len(data[0]) for x in get_good_reviews(data)]
     sorted_data = sorted(zip(platforms, good_reviews_share), key=lambda x: x[1])
 
     keys = [x[0] for x in sorted_data]
